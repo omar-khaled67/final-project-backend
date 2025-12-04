@@ -1,4 +1,3 @@
-
 const app = require("./app");
 require("dotenv").config();
 const dbConnection = require("./utils/db");
