@@ -1,11 +1,9 @@
 const app = require("./app");
-require("dotenv").config();
 const dbConnection = require("./utils/db");
+require("dotenv").config();
 
-const PORT = process.env.PORT || 8000;
+// Connect to MongoDB once at cold start
+dbConnection();
 
-
-app.listen(PORT, () => {
-  console.log(`Server running on ${process.env.FRONTEND_HOST || 'http://localhost'}:${PORT}`);
-  dbConnection(); 
-});
+// Export as Vercel serverless handler
+module.exports = app;
